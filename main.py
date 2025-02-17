@@ -1,3 +1,4 @@
+import os
 import asyncio
 from websockets.asyncio.client import connect
 
@@ -7,6 +8,7 @@ async def hello():
         await websocket.send("LISTENER nlx")
         while True:
             message = await websocket.recv()
+            os.system("cls" if os.name == "nt" else "clear")
             print(message)
 
 
